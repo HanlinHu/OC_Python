@@ -25,3 +25,5 @@ Copyright (c) All rights reserved
 # Credits
 
 CIRpy - https://github.com/mcs07/CIRpy
+
+OPSIN - http://opsin.ch.cam.ac.uk/
