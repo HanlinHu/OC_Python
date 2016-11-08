@@ -9,11 +9,17 @@ Copyright (c) All rights reserved
 # Repository Contents
 
 /database
+
 /lib
+
 /scripts
+
 /sql
+
 /test
+
 /xml
+
 /README.md
 
 # Credits
