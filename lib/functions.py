@@ -74,11 +74,13 @@ def get_wrong_fgroup(fgroup, base, locant):
     result = cursor.execute("SELECT * FROM Molecules WHERE fgroup!='" + str(fgroup) + "' AND base='" + str(base) + "' AND locant='"
                             + str(locant) + "' ORDER BY RANDOM();")
     if result is None:
-        print 'No result'
+        db.close()
+        print 'No result: Wrong F group'
+        return 'no result'
     else:
         result = result.fetchone()
-    db.close()
-    return result[0]
+        db.close()
+        return result[0]
 
 def get_wrong_parent(fgroup, base, locant):
     db = sqlite3.connect('../database/Molecules.db')
@@ -95,11 +97,13 @@ def get_wrong_parent(fgroup, base, locant):
     result = cursor.execute("SELECT * FROM Molecules WHERE fgroup LIKE'" + "%" + str(fgroup) + "' AND base!='" + str(base)
                             + "' AND locant='" + str(locant) + "' ORDER BY RANDOM();")
     if result is None:
-        print 'No result'
+        db.close()
+        print 'No result: Wrong Parent'
+        return 'no result'
     else:
         result = result.fetchone()
-    db.close()
-    return result[0]
+        db.close()
+        return result[0]
 
 def get_wrong_locant(fgroup, base, locant, parent):
     db = sqlite3.connect('../database/Molecules.db')
@@ -120,7 +124,8 @@ def get_wrong_locant(fgroup, base, locant, parent):
         result = result.fetchall()
         if len(result) == 0:
             db.close()
-            print 'No Result.'
+            print 'No Result: Wrong Locant'
+            return 'no result'
         else:
             db.close()
             return result[0][0]
