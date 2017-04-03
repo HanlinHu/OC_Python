@@ -55,7 +55,7 @@ for reactants in reactants_all:
         # base64 encoding image
         try:
             # Here we need to replace blank space with %20
-            # Cannot use mudule urllib. e.g.: urllib.quote(str(product[0]))
+            # Cannot use module urllib. e.g.: urllib.quote(str(product[0]))
             # The reason see 'url_string_test.py' result in test folder
             react_image = urllib2.urlopen(path + str(reactants[0]).replace(' ', '%20') + str('.png')).read()
             reactant_string = '\r\n'.join(textwrap.wrap(base64.b64encode(react_image), HTML_WRAP_WIDTH))
