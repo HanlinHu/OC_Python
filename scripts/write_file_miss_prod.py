@@ -82,7 +82,7 @@ for reactants in reactants_all:
         f.write('<question type=\"jme\">\n')
         f.write('<name>\n')
         f.write('<text>')
-        f.write('Question Name (SMILES_rxn_aa_1a_2)')
+        f.write('Question Name: Product ' + str(q_type).title())
         f.write('</text>\n')
         f.write('</name>\n')
         f.write('<questiontext format=\"html\">\n')
