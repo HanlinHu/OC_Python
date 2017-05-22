@@ -7,3 +7,6 @@ import lib.cirpy as cir
 # expect: CC(C)C(C)CO
 # output: CC(C)C(C)CO
 print cir.resolve('2,3-dimethyl-1-butanol', 'smiles')
+
+# output: CCC(CC)C=O
+print cir.resolve('2-Ethylbutanal', 'smiles')
