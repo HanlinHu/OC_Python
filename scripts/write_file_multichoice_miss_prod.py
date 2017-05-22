@@ -115,7 +115,7 @@ for reactants in reactants_all:
             f.write('<question type=\"multichoice\">\n')
             f.write('<name>\n')
             f.write('<text>')
-            f.write('MultiChoice: ' + tag.remove_tag(str(reagents[0])))
+            f.write('MultiChoice: miss_prod' + tag.remove_tag(str(reagents[0])))
             f.write('</text>\n')
             f.write('</name>\n')
             f.write('<questiontext format=\"html\">\n')
