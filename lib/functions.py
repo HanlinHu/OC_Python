@@ -33,7 +33,7 @@ def get_molecules():
     db.close()
     return result
 
-def get_reagents_prod(fgroup):
+def get_reagents(fgroup):
     db = sqlite3.connect('../database/Molecules.db')
     if db:
         print "(get_reagents) Open database successfully."
@@ -47,41 +47,12 @@ def get_reagents_prod(fgroup):
     db.close()
     return result
 
-def get_reagents_react(fgroup):
-    db = sqlite3.connect('../database/Molecules.db')
-    if db:
-        print "(get_reagents) Open database successfully."
-    else:
-        print "(get_reagents) Fail to open database."
-        sys.exit()
-
-    cursor = db.cursor()
-    result = cursor.execute("SELECT * FROM Reagents WHERE product='" + str(fgroup) + "' ;")
-    result = result.fetchall()
-    db.close()
-    return result
-
 def get_product(fgroup, base, locant):
     db = sqlite3.connect('../database/Molecules.db')
     if db:
         print "(get_product) Open database successfully."
     else:
         print "(get_product) Fail to open database."
-        sys.exit()
-
-    cursor = db.cursor()
-    result = cursor.execute("SELECT * FROM Molecules WHERE fgroup='" + str(fgroup) + "' AND base='" + str(base)
-                            + "' AND locant='" + str(locant) + "' ;")
-    result = result.fetchone()
-    db.close()
-    return result
-
-def get_reactant(fgroup, base, locant):
-    db = sqlite3.connect('../database/Molecules.db')
-    if db:
-        print "(get_reactant) Open database successfully."
-    else:
-        print "(get_reactant) Fail to open database."
         sys.exit()
 
     cursor = db.cursor()

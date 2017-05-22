@@ -8,7 +8,7 @@ Copyright (c) All rights reserved
 
 # Repository Contents
 
-/database (Optional)
+/database
 
 /lib
 

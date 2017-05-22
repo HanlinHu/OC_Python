@@ -29,7 +29,7 @@ f.write('<quiz>\n')
 f.close()
 
 for reactants in reactants_all:
-    reagents_all = func.get_reagents_prod(reactants[4]) # reactants - fgroup
+    reagents_all = func.get_reagents(reactants[4]) # reactants - fgroup
     for reagents in reagents_all:
         prod_group = reagents[2]    # reagents - product
         prod_base = reactants[1]    # reactants - base
@@ -53,6 +53,7 @@ for reactants in reactants_all:
             wrong_product_loc = func.get_wrong_locant(prod_group, prod_base, prod_loc, prod_par)
 
             # feedback
+
             feedback_wrong_product_fgr = 'Check the functional group again!'
             feedback_wrong_product_par = 'Check the carbon chain again!'
             feedback_wrong_product_loc = 'Check the locant of the group again!'
@@ -114,7 +115,7 @@ for reactants in reactants_all:
             f.write('<question type=\"multichoice\">\n')
             f.write('<name>\n')
             f.write('<text>')
-            f.write('MultiChoice: miss_prod ' + tag.remove_tag(str(reagents[0])))
+            f.write('MultiChoice: ' + tag.remove_tag(str(reagents[0])))
             f.write('</text>\n')
             f.write('</name>\n')
             f.write('<questiontext format=\"html\">\n')
@@ -187,6 +188,7 @@ for reactants in reactants_all:
             f.write('</answer>\n')
 
             f.write('</question>\n\n')
+
             question_count += 1
 
         except:
@@ -204,8 +206,8 @@ for reactants in reactants_all:
 
         f.close()
 
-        f = open("../xml/miss_prod_multichoice.xml", "a")
-        f.write('</quiz>\n\n\n')
-        f.close()
+f = open("../xml/miss_prod_multichoice.xml", "a")
+f.write('</quiz>\n\n\n')
+f.close()
 
-        print 'Finished.'
+print 'Finished.'
