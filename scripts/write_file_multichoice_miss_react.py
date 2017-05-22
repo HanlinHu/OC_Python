@@ -2,7 +2,7 @@
 # On May 15 2017
 # Copyright: All rights reserved
 
-# Generate moodle xml file (MultiChoice)
+# Generate moodle xml file (MultiChoice React)
 
 import urllib2
 import base64
