@@ -30,7 +30,7 @@ f.write('<quiz>\n')
 f.close()
 
 for reactants in reactants_all:
-    reagents_all = func.get_reagents(reactants[4]) # reagents - fgroup
+    reagents_all = func.get_reagents_prod(reactants[4]) # reagents - fgroup
     for reagents in reagents_all:
         prod_group = reagents[2]    # reagents - product
         prod_base = reactants[1]    # reactants - base
