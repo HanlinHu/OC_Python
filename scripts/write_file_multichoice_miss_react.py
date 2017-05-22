@@ -98,7 +98,7 @@ for products in products_all:
 
             try:
                 react_image = urllib2.urlopen(path + str(reactant[0]).replace(' ', '%20') + str('.png')).read()
-                react_string = '\r\n'.join(textwrap.wrap(base64.b64encode(react_image), HTML_WRAP_WIDTH))
+                reactant_string = '\r\n'.join(textwrap.wrap(base64.b64encode(react_image), HTML_WRAP_WIDTH))
             except:
                 print 'Image not found: ' + str(reactant[0])
 
@@ -153,7 +153,7 @@ for products in products_all:
 
             f.write('<answer fraction=\"100\" format=\"moodle_auto_format\">\n')
             f.write('<text>')
-            f.write('<![CDATA[<p>' + '<img src="data:image/png;base64,' + str(react_string) + '"/></p>]]>\n')
+            f.write('<![CDATA[<p>' + '<img src="data:image/png;base64,' + str(reactant_string) + '"/></p>]]>\n')
             f.write('</text>\n')
             f.write('<feedback format=\"html\">\n')
             f.write('<text></text>\n')
