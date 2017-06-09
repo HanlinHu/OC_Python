@@ -1,8 +1,12 @@
-# Create by Hanlin Hu
+# Created by Hanlin Hu
 # On May 15 2017
 # Copyright: All rights reserved
 
 # Generate moodle xml file (MultiChoice React)
+
+#!/usr/bin/env python2.7
+import sys
+sys.path.append('../')
 
 import urllib2
 import base64
@@ -13,7 +17,7 @@ import lib.remove_tag as tag
 # width fot text wrap
 HTML_WRAP_WIDTH = 3000
 
-courseName = "$course$/Default for Chemistry/Product/"
+courseName = "$course$/Default for Chemistry/Reactant/"
 path = "http://opsin.ch.cam.ac.uk/opsin/"
 
 question_count = 1
@@ -119,15 +123,15 @@ for products in products_all:
             f.write('</name>\n')
             f.write('<questiontext format=\"html\">\n')
             f.write('<text>')
-            f.write('<![CDATA[<table border=\"0\">' + '<tbody>' + '<tr>' + '<td rowspan=\"3\">' +
+            f.write('<![CDATA[<table border=\"0\">' + '<tbody>' + '<tr>' + '<td rowspan=\"3\">' + '<center>' +
                     '<p style=\"font-size:400%;\">?</p>'+
                     '</center></td>' + '<td style=\"vertical-align: bottom; height: 60px;\"><center>' + str(reagents[0]) +
                     '</center></td>' + '<td rowspan=\"3\" style=\"width:60px\"><center>' +
                     '<img src="data:image/png;base64,' + '\n' + str(product_string) + '"/>' +
-                    '</center></td>' + '</tr>' + '<tr>' +
+                    '</center></td>\n' + '</tr>' + '<tr>' +
                     '<td>' + '<center><b>-------------------------></b></center>' + '</td>' + '</tr>' +
                     '<tr>' + '<td style=\"vertical-align:top; height:60px\">' + '<center>' + str(reagents[3]) +
-                    '</center>' + '</td>' + '</tr>' + '</tbody>' + "</table><br><br>]]>")
+                    '</center>' + '</td>' + '</tr>' + '</tbody>' + "</table><br><br>]]>\n")
             f.write('</text>\n')
             f.write('</questiontext>\n')
             f.write('<generalfeedback format=\"html\">\n')

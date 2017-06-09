@@ -1,8 +1,12 @@
-# Create by Hanlin Hu
+# Created by Hanlin Hu
 # On Nov 07 2016
 # Copyright: All rights reserved
 
 # Generate moodle xml file (JME)
+
+#!/usr/bin/env python2.7
+import sys
+sys.path.append('../')
 
 import urllib2
 import base64
@@ -89,14 +93,14 @@ for reactants in reactants_all:
         f.write('</name>\n')
         f.write('<questiontext format=\"html\">\n')
         f.write('<text>')
-        f.write('<![CDATA[<table border=\"0\">' + '<tbody>' + '<tr>' + '<td rowspan=\"3\">' +
+        f.write('<![CDATA[<table border=\"0\">' + '<tbody>' + '<tr>' + '<td rowspan=\"3\">' + '<center>' +
                 '<img src="data:image/png;base64,' + '\n' + str(reactant_string) + '" ' + ' />' +
                 '</center></td>' + '<td style=\"vertical-align: bottom; height: 60px;\"><center>' + str(reagents[0]) +
                 '</center></td>' + '<td rowspan=\"3\" style=\"width:60px\"><center>' +
                 '<p style=\"font-size:400%;\">?</p>' + '</center></td>' + '</tr>' + '<tr>' +
                 '<td>' + '<center><b>-------------------------></b></center>' + '</td>' + '</tr>' +
                 '<tr>' + '<td style=\"vertical-align:top; height:60px\">' + '<center>' + str(reagents[3]) +
-                '</center>' + '</td>' + '</tr>' + '</tbody>' + "</table><br><br>]]>")
+                '</center>' + '</td>' + '</tr>' + '</tbody>' + "</table><br><br>]]>\n")
         f.write('</text>\n')
         f.write('</questiontext>\n')
         f.write('<generalfeedback format=\"html\">\n')

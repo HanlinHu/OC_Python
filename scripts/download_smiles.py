@@ -1,8 +1,12 @@
-# Create by Hanlin Hu
+# Created by Hanlin Hu
 # On Nov 20 2016
 # Copyright: All rights reserved
 
 # download canonical SMILES code from NCI/NIH
+
+#!/usr/bin/env python2.7
+import sys
+sys.path.append('../')
 
 import lib.functions as func
 import lib.cirpy as cir     # ref: http://cirpy.readthedocs.io/en/latest/

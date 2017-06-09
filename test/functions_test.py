@@ -2,7 +2,10 @@
 # On Nov 06 2016
 # Copyright: All rights reserved
 
-# import lib.functions as func
+#!/usr/bin/env python2.7
+import sys
+sys.path.append('../')
+import lib.functions as func
 
 # Test examples:
 # -------------------------------------------------------------------
@@ -31,3 +34,12 @@
 
 # data = func.get_wrong_locant('alkane', 'propane',  1 , 'propane')
 # print data
+
+# data = func.get_wrong_reagent_1('1) LAH')
+# print data
+#
+# data1 = func.get_wrong_reagent_2('1) LAH', data)
+# print data1
+#
+# data2 = func.get_wrong_reagent_3('1) LAH', data, data1)
+# print data2

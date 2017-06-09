@@ -1,8 +1,12 @@
-# Create by Hanlin Hu
+# Created by Hanlin Hu
 # On Nov 20 2016
 # Copyright: All rights reserved
 
 # download image file from OPSIN
+
+#!/usr/bin/env python2.7
+import sys
+sys.path.append('../')
 
 import urllib2
 import lib.functions as func
