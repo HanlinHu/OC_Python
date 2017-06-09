@@ -1,4 +1,4 @@
-# Create by Hanlin Hu
+# Created by Hanlin Hu
 # On Nov 06 2016
 # Copyright: All rights reserved
 
@@ -90,6 +90,46 @@ def get_reactant(fgroup, base, locant):
     result = result.fetchone()
     db.close()
     return result
+
+def get_wrong_reagent_1(name):
+    db = sqlite3.connect('../database/Molecules.db')
+    if db:
+        print "(get_reactant) Open database successfully."
+    else:
+        print "(get_reactant) Fail to open database."
+        sys.exit()
+    cursor = db.cursor()
+    result = cursor.execute("SELECT * FROM Reagents WHERE name !='" + str(name) + "'  ORDER BY RANDOM() LIMIT 1;")
+    result = result.fetchone()
+    db.close()
+    return result[0]
+
+def get_wrong_reagent_2(name1, name2):
+    db = sqlite3.connect('../database/Molecules.db')
+    if db:
+        print "(get_reactant) Open database successfully."
+    else:
+        print "(get_reactant) Fail to open database."
+        sys.exit()
+    cursor = db.cursor()
+    result = cursor.execute("SELECT * FROM Reagents WHERE name !='" + str(name1) + "' AND name !='" + str(name2) + "'  ORDER BY RANDOM() LIMIT 1;")
+    result = result.fetchone()
+    db.close()
+    return result[0]
+
+def get_wrong_reagent_3(name1, name2, name3):
+    db = sqlite3.connect('../database/Molecules.db')
+    if db:
+        print "(get_reactant) Open database successfully."
+    else:
+        print "(get_reactant) Fail to open database."
+        sys.exit()
+    cursor = db.cursor()
+    result = cursor.execute("SELECT * FROM Reagents WHERE name !='" + str(name1) + "' AND name !='" + str(name2) +
+                "' AND name !='" + str(name3) + "'  ORDER BY RANDOM() LIMIT 1;")
+    result = result.fetchone()
+    db.close()
+    return result[0]
 
 def get_wrong_fgroup(fgroup, base, locant):
     db = sqlite3.connect('../database/Molecules.db')
