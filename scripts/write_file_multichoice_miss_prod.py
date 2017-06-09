@@ -14,6 +14,13 @@ import textwrap
 import lib.functions as func
 import lib.remove_tag as tag
 
+import os.path
+
+xml_dir = '../xml/'
+
+if not os.path.exists(xml_dir):
+    os.makedirs(xml_dir)
+
 # width fot text wrap
 HTML_WRAP_WIDTH = 3000
 
@@ -24,7 +31,7 @@ question_count = 1
 reactants_all = func.get_molecules()
 
 # Open a file to write
-f = open("../xml/miss_prod_multichoice.xml", "w")
+f = open(xml_dir + "miss_prod_multichoice.xml", "w")
 
 print "Name of the file: ", f.name
 
@@ -107,7 +114,7 @@ for reactants in reactants_all:
             except:
                 print 'Image not found: ' + str(product[0])
 
-            f = open("../xml/miss_prod_multichoice.xml", "a")
+            f = open(xml_dir + "miss_prod_multichoice.xml", "a")
             # print content to xml
             f.write('<!-- question: 0  -->\n')
             f.write('<question type=\"category\">\n')
@@ -210,7 +217,7 @@ for reactants in reactants_all:
 
         f.close()
 
-f = open("../xml/miss_prod_multichoice.xml", "a")
+f = open(xml_dir + "miss_prod_multichoice.xml", "a")
 f.write('</quiz>\n\n\n')
 f.close()
 

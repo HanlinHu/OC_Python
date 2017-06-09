@@ -5,12 +5,19 @@
 # Create database file from existing sql file
 
 import sqlite3
+import os.path
 
-db = sqlite3.connect('../database/Molecules.db')
+data_dir = '../database/'
+sql_dir = '../sql/'
+
+if not os.path.exists(data_dir):
+    os.makedirs(data_dir)
+
+db = sqlite3.connect(data_dir + 'Molecules.db')
 cursor = db.cursor()
 
 # Open and read the file as a single buffer
-sqlFile = open('../sql/molecules.sql', 'r')
+sqlFile = open(sql_dir + 'molecules.sql', 'r')
 sqlLine = sqlFile.read()
 sqlCommend = sqlLine.split(';')
 

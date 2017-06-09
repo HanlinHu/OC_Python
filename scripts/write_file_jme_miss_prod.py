@@ -15,6 +15,13 @@ import lib.cirpy as cir    # ref: http://cirpy.readthedocs.io/en/latest/
 import lib.functions as func
 import lib.remove_tag as tag
 
+import os.path
+
+xml_dir = '../xml/'
+
+if not os.path.exists(xml_dir):
+    os.makedirs(xml_dir)
+
 # width fot text wrap
 HTML_WRAP_WIDTH = 79
 
@@ -25,7 +32,7 @@ question_count = 1
 reactants_all = func.get_molecules()
 
 # Open a file to write
-f = open("../xml/miss_prod_jme.xml", "w")
+f = open(xml_dir + "miss_prod_jme.xml", "w")
 
 print "Name of the file: ", f.name
 
@@ -76,7 +83,7 @@ for reactants in reactants_all:
             print 'Image not found: ' + str(product[0])
             continue
 
-        f = open("../xml/miss_prod_jme.xml", "a")
+        f = open(xml_dir + "miss_prod_jme.xml", "a")
         # print content to xml
         f.write('<!-- question: 0  -->\n')
         f.write('<question type=\"category\">\n')
@@ -132,7 +139,7 @@ for reactants in reactants_all:
         f.close()
         question_count += 1
 
-f = open("../xml/miss_prod_jme.xml", "a")
+f = open(xml_dir + "miss_prod_jme.xml", "a")
 f.write('</quiz>\n\n\n')
 f.close()
 

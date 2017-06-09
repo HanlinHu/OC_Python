@@ -11,7 +11,13 @@ sys.path.append('../')
 import lib.functions as func
 import lib.cirpy as cir     # ref: http://cirpy.readthedocs.io/en/latest/
 
-smi_dirc = '../smi/'
+import os.path
+
+smi_dir = '../smi/'
+
+if not os.path.exists(smi_dir):
+    os.makedirs(smi_dir)
+
 extension_name = '.smi'
 
 molecules_all = func.get_molecules()
@@ -20,7 +26,7 @@ for molecules in molecules_all:
     molecules_smi = cir.resolve(str(molecules_name), 'smiles')
 
     file_name = molecules_name
-    f = open(str(smi_dirc) + str(file_name) + str(extension_name), 'w+')   # w+ : write (overwrite exists)
+    f = open(str(smi_dir) + str(file_name) + str(extension_name), 'w+')   # w+ : write (overwrite exists)
     f.write(str(molecules_smi))
     f.close()
 

@@ -11,7 +11,13 @@ sys.path.append('../')
 import urllib2
 import lib.functions as func
 
-img_dirc = '../img/'
+import os.path
+
+img_dir = '../img/'
+
+if not os.path.exists(img_dir):
+    os.makedirs(img_dir)
+
 path = "http://opsin.ch.cam.ac.uk/opsin/"
 extension_name = '.png'
 
@@ -21,7 +27,7 @@ for molecules in molecules_all:
     molecules_image = urllib2.urlopen(path + str(molecules_name).replace(' ', '%20') + str(extension_name))
 
     file_name = molecules_name
-    f = open(str(img_dirc) + str(file_name) + str(extension_name), 'wb+')   # wb+ : write binary (overwrite exists)
+    f = open(str(img_dir) + str(file_name) + str(extension_name), 'wb+')   # wb+ : write binary (overwrite exists)
 
     file_size_dl = 0
     block_sz = 8192
